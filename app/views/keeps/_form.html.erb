@@ -1,0 +1,27 @@
+<%= form_with(model: keep, local: true) do |form| %>
+  <% if keep.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(keep.errors.count, "error") %> prohibited this keep from being saved:</h2>
+
+      <ul>
+      <% keep.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :keep_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :note %>
+    <%= form.text_field :note, id: :keep_note %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
